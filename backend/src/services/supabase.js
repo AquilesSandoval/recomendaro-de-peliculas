@@ -2,11 +2,13 @@
 import { createClient } from '@supabase/supabase-js';
 import ws from 'ws';
 
-// Node.js 20 no tiene WebSocket nativo — se lo pasamos manualmente
+// Polyfill WebSocket para compatibilidad con Node.js < 22
+if (!globalThis.WebSocket) globalThis.WebSocket = ws;
+
 const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_ANON_KEY,
-  { global: { WebSocket: ws } }
+  { realtime: { transport: ws } }
 );
 
 export async function getPeliculas(ids) {

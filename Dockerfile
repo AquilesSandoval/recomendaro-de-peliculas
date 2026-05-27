@@ -1,7 +1,7 @@
 # ============================================================
 # Dockerfile — CineExpert Backend (Node.js + SWI-Prolog)
 # ============================================================
-FROM node:20-bookworm-slim
+FROM node:22-bookworm-slim
 
 # Instalar SWI-Prolog
 RUN apt-get update && apt-get install -y --no-install-recommends \
