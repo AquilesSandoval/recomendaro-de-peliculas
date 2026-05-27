@@ -1,9 +1,8 @@
 #!/bin/sh
-# Script de arranque dentro del contenedor Docker
-# Inicia Prolog en background y luego Node.js en foreground
+# Arrancar Prolog en background y Node en foreground
 cd /app
 swipl prolog/servidor.pl &
-echo "🧠 Servidor Prolog iniciando en background (PID $!)"
+echo "Servidor Prolog iniciando en background (PID $!)"
 sleep 3
-echo "🎬 Iniciando servidor Node.js..."
-node src/index.js
+echo "Iniciando servidor Node.js..."
+node backend/src/index.js

@@ -1,6 +1,4 @@
-% Declarar encoding UTF-8 para caracteres especiales en español
-:- set_prolog_flag(encoding, utf8).
-
+:- encoding(utf8).
 % ================================================================
 % servidor.pl — Servidor HTTP de SWI-Prolog para CineExpert
 %

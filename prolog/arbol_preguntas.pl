@@ -1,25 +1,15 @@
-% Declarar encoding UTF-8 para caracteres especiales en español
-:- set_prolog_flag(encoding, utf8).
-
+:- encoding(utf8).
 % ================================================================
 % arbol_preguntas.pl — Arbol de decision adaptativo
-% CineExpert — Proyecto Final Programación Lógica
+% CineExpert — Proyecto Final Programacion Logica
 %
 % CONCEPTOS DEMOSTRADOS:
-%   [ÁRBOL]        El árbol de preguntas se representa como término
+%   [ARBOL]        El arbol de preguntas se representa como termino
 %                  Prolog: nodo(Id, SubArbolIzq, SubArbolDer)
 %   [LISTAS]       Las opciones de cada pregunta son listas Prolog;
 %                  se usan findall/3, member/2, append/3
-%   [RECURSIVIDAD] Navegación del árbol y cálculo de eliminación son recursivos
+%   [RECURSIVIDAD] Navegacion del arbol y calculo de eliminacion son recursivos
 % ================================================================
-
-:- module(arbol_preguntas, [
-    pregunta/4,
-    siguiente_pregunta/3,
-    preguntas_restantes/2,
-    opcion_a_genero/2,
-    suma_lista/2
-]).
 
 % ================================================================
 % HECHOS: Definición de las preguntas disponibles

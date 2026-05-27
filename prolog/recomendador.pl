@@ -1,28 +1,18 @@
-% Declarar encoding UTF-8 para caracteres especiales en español
-:- set_prolog_flag(encoding, utf8).
-
+:- encoding(utf8).
 % ================================================================
 % recomendador.pl — Motor de recomendacion de peliculas
-% CineExpert — Proyecto Final Programación Lógica
+% CineExpert — Proyecto Final Programacion Logica
 %
 % CONCEPTOS DEMOSTRADOS:
-%   [LISTAS]       findall/3, member/2, append/3, intersección de géneros,
+%   [LISTAS]       findall/3, member/2, append/3, interseccion de generos,
 %                  ordenamiento de listas con msort/2
-%   [RECURSIVIDAD] Cálculo acumulativo de puntajes, recorrido de candidatos,
-%                  construcción recursiva de explicaciones
-%   [ÁRBOL]        Se usa el árbol de arbol_preguntas.pl para navegar
+%   [RECURSIVIDAD] Calculo acumulativo de puntajes, recorrido de candidatos,
+%                  construccion recursiva de explicaciones
+%   [ARBOL]        Se usa el arbol de arbol_preguntas.pl para navegar
 %                  el orden de preguntas
-%   [REGLAS]       Encadenamiento hacia atrás para inferir recomendaciones
-%   [NEGACIÓN]     \+ (negación por fallo) para "¿Por qué no esta?"
+%   [REGLAS]       Encadenamiento hacia atras para inferir recomendaciones
+%   [NEGACION]     \+ (negacion por fallo) para "Por que no esta?"
 % ================================================================
-
-:- module(recomendador, [
-    candidatos_actuales/2,
-    top5_recomendaciones/2,
-    puntaje_pelicula/3,
-    explicar_recomendacion/3,
-    por_que_no_recomendada/3
-]).
 
 :- use_module(arbol_preguntas).
 

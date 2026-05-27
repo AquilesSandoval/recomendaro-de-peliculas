@@ -1,6 +1,3 @@
-# ============================================================
-# Dockerfile — CineExpert Backend (Node.js + SWI-Prolog)
-# ============================================================
 FROM node:22-bookworm-slim
 
 # Instalar SWI-Prolog
@@ -10,12 +7,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-# Instalar dependencias Node
-COPY backend/package.json ./
-RUN npm install --omit=dev
+# Instalar dependencias Node (preservando la carpeta backend/ para que los paths queden igual que en dev)
+COPY backend/package.json ./backend/
+RUN cd backend && npm install --omit=dev
 
-# Copiar código
-COPY backend/src ./src
+# Copiar código preservando la estructura de carpetas
+COPY backend/src ./backend/src
 COPY prolog ./prolog
 COPY start.sh ./start.sh
 RUN chmod +x start.sh
