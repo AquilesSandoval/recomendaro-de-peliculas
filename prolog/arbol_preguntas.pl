@@ -1,5 +1,8 @@
+% Declarar encoding UTF-8 para caracteres especiales en español
+:- set_prolog_flag(encoding, utf8).
+
 % ================================================================
-% arbol_preguntas.pl — Árbol de decisión adaptativo
+% arbol_preguntas.pl — Arbol de decision adaptativo
 % CineExpert — Proyecto Final Programación Lógica
 %
 % CONCEPTOS DEMOSTRADOS:

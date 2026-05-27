@@ -1,9 +1,12 @@
 // Servicio de Supabase — acceso a datos enriquecidos (posters, sinopsis)
 import { createClient } from '@supabase/supabase-js';
+import ws from 'ws';
 
+// Node.js 20 no tiene WebSocket nativo — se lo pasamos manualmente
 const supabase = createClient(
   process.env.SUPABASE_URL,
-  process.env.SUPABASE_ANON_KEY
+  process.env.SUPABASE_ANON_KEY,
+  { global: { WebSocket: ws } }
 );
 
 export async function getPeliculas(ids) {

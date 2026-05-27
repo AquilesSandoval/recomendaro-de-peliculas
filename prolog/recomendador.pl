@@ -1,5 +1,8 @@
+% Declarar encoding UTF-8 para caracteres especiales en español
+:- set_prolog_flag(encoding, utf8).
+
 % ================================================================
-% recomendador.pl — Motor de recomendación de películas
+% recomendador.pl — Motor de recomendacion de peliculas
 % CineExpert — Proyecto Final Programación Lógica
 %
 % CONCEPTOS DEMOSTRADOS:

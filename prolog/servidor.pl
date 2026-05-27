@@ -1,3 +1,6 @@
+% Declarar encoding UTF-8 para caracteres especiales en español
+:- set_prolog_flag(encoding, utf8).
+
 % ================================================================
 % servidor.pl — Servidor HTTP de SWI-Prolog para CineExpert
 %
@@ -41,13 +44,13 @@
 :- initialization(iniciar_servidor, main).
 
 iniciar_servidor :-
-    getenv('PROLOG_PORT', PuertoStr) ->
+    (getenv('PROLOG_PORT', PuertoStr) ->
         atom_number(PuertoStr, Puerto)
     ;
-        Puerto = 8081,
-    format("🎬 Servidor Prolog iniciando en puerto ~w~n", [Puerto]),
+        Puerto = 8081),
+    format("Servidor Prolog iniciando en puerto ~w~n", [Puerto]),
     http_server(http_dispatch, [port(Puerto)]),
-    format("✅ Servidor Prolog listo~n").
+    format("Servidor Prolog listo~n").
 
 % ================================================================
 % GET /health — verificación de vida
