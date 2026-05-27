@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-cinedark text-white font-sans antialiased;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-cinegray border border-cineborder rounded-2xl;
+  }
+  .btn-primary {
+    @apply bg-cineaccent hover:bg-violet-500 text-white font-semibold px-6 py-3 rounded-xl
+           transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-ghost {
+    @apply border border-cineborder hover:border-violet-500 text-gray-400 hover:text-white
+           font-medium px-5 py-2.5 rounded-xl transition-all duration-200;
+  }
+  .badge-afinidad {
+    @apply text-sm font-bold px-3 py-1 rounded-full;
+  }
+}

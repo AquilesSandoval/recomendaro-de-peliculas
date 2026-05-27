@@ -1,0 +1,18 @@
+{
+  "name": "cineexpert-scripts",
+  "version": "1.0.0",
+  "description": "Scripts de setup, migración e ingesta — CineExpert",
+  "type": "module",
+  "scripts": {
+    "setup":           "node setup.js",
+    "migrar":          "node migrar_bd.js",
+    "ingestar":        "node ingestar_tmdb.js",
+    "generar-hechos":  "node generar_hechos.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2",
+    "pg": "^8.12.0"
+  }
+}

@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  # --------------------------------------------------------
+  # Backend: Node.js + SWI-Prolog en la misma imagen
+  # --------------------------------------------------------
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"   # API Express
+      - "8081:8081"   # Servidor HTTP Prolog (interno, pero expuesto para debug)
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - PROLOG_HOST=localhost   # Prolog corre en el mismo contenedor
+      - PROLOG_PORT=8081
+    volumes:
+      - ./prolog:/app/prolog    # Montar archivos .pl para desarrollo rápido
+    restart: unless-stopped
+
+  # --------------------------------------------------------
+  # Frontend: React + Vite (solo en desarrollo local)
+  # En producción se despliega en Vercel por separado
+  # --------------------------------------------------------
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:3001
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    profiles:
+      - dev   # Solo se levanta con: docker-compose --profile dev up

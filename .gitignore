@@ -1,0 +1,21 @@
+# Variables de entorno (NUNCA subir al repositorio)
+.env
+.env.local
+.env.production
+
+# Dependencias de Node
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+scripts/node_modules/
+
+# Build del frontend
+frontend/dist/
+frontend/.vite/
+
+# SWI-Prolog temporales
+*.qlf
+
+# OS
+.DS_Store
+Thumbs.db
